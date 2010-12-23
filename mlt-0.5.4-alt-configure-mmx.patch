@@ -1,0 +1,66 @@
+--- mlt-0.5.4/configure~	2010-06-17 09:01:27.000000000 +0400
++++ mlt-0.5.4/configure	2010-06-17 09:01:58.000000000 +0400
+@@ -204,63 +204,6 @@ done
+ [ "$datadir" = "" ] && datadir=$prefix/share
+ [ "$mandir" = "" ] && mandir=$prefix/share/man
+ 
+-# Double check MMX (Darwin, Linux and FreeBSD supported, may end up disabling MMX on other platforms incorrectly)
+-if [ "$mmx" = "true" ]
+-then
+-	case $targetos in
+-		Darwin)
+-		sysctl -a hw | grep "mmx: 1" > /dev/null || mmx=false
+-		;;
+-		Linux)
+-		grep mmx /proc/cpuinfo > /dev/null 2>&1 || mmx=false
+-		;;
+-		FreeBSD)
+-		[ "$(make -V MACHINE_CPU:Mmmx)" ] || mmx=false
+-		;;
+-		*)
+-		grep mmx /proc/cpuinfo > /dev/null 2>&1 || mmx=false
+-		;;
+-	esac
+-fi
+-
+-# Double check SSE (Darwin, Linux and FreeBSD supported, may end up disabling SSE on other platforms incorrectly)
+-if [ "$sse" = "true" ]
+-then
+-	case $targetos in
+-		Darwin)
+-		sysctl -a hw | grep "sse: 1" > /dev/null || sse=false
+-		;;
+-		Linux)
+-		grep sse /proc/cpuinfo > /dev/null 2>&1 || sse=false
+-		;;
+-		FreeBSD)
+-		[ "$(make -V MACHINE_CPU:Msse)" ] || sse=false
+-		;;
+-		*)
+-		grep sse /proc/cpuinfo > /dev/null 2>&1 || sse=false
+-		;;
+-	esac
+-fi
+-
+-# Double check SSE2 (Darwin, Linux and FreeBSD supported, may end up disabling SSE2 on other platforms incorrectly)
+-if [ "$sse2" = "true" ]
+-then
+-	case $targetos in
+-		Darwin)
+-		sysctl -a hw | grep "sse2: 1" > /dev/null || sse2=false
+-		;;
+-		Linux)
+-		grep sse2 /proc/cpuinfo > /dev/null 2>&1 || sse2=false
+-		;;
+-		FreeBSD)
+-		[ "$(make -V MACHINE_CPU:Msse2)" ] || sse2=false
+-		;;
+-		*)
+-		grep sse2 /proc/cpuinfo > /dev/null 2>&1 || sse2=false
+-		;;
+-	esac
+-fi
+-
+ # Show help if requested
+ if [ $help = 1 ]
+ then
