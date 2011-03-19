@@ -8,15 +8,14 @@
 
 Summary:        Toolkit for broadcasters, video editors, media players, transcoders
 Name:           mlt
-Version:        0.5.10
+Version:        0.6.2
 Release:        1%{?dist}
 
 License:        GPLv2+ and LGPLv2+
 URL:            http://www.mltframework.org/twiki/bin/view/MLT/
 Group:          System Environment/Libraries
-Source:         http://downloads.sourceforge.net/mlt/%{name}-%{version}.tar
+Source:         http://downloads.sourceforge.net/project/mlt/mlt/mlt-%{version}.tar.gz
 Source1:	mlt++-config.h
-Patch1:		mlt-0.5.4-alt-configure-mmx.patch
 BuildRoot:      %{_tmppath}/%{name}-%{version}-%{release}-root-%(%{__id_u} -n)
 
 
@@ -181,6 +180,10 @@ rm -rf $RPM_BUILD_ROOT
 
 
 %changelog
+* Sun Mar 20 2011 Arkady L. Shane <ashejn@yandx-team.ru> - 0.6.2-1
+- update to 0.6.2
+- drop mmx patch
+
 * Thu Nov  8 2010 Arkady L. Shane <ashejn@yandx-team.ru> - 0.5.10-1
 - update to 0.5.10
 
